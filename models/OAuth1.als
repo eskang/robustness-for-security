@@ -1,5 +1,5 @@
 /**
-	A model of the OAuth 2 protocol
+	A model of the OAuth 1 protocol
 
 	Author: Eunsuk Kang (eskang@cmu.edu)
 	Created: July 15, 2020
