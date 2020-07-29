@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+<alloy>
+
+<view nodetheme="Martha" edgetheme="Martha">
+
+<projection> <type name="Time"/> </projection>
+
+<defaultnode/>
+
+<defaultedge/>
+
+<node>
+   <type name="AccessToken"/>
+   <type name="AuthCode"/>
+   <type name="authorize"/>
+   <type name="CallEvent"/>
+   <type name="code_Alice"/>
+   <type name="code_Eve"/>
+   <type name="Component"/>
+   <type name="cred_Alice"/>
+   <type name="cred_Eve"/>
+   <type name="forward"/>
+   <type name="getAccessToken"/>
+   <type name="id_Alice"/>
+   <type name="id_Eve"/>
+   <type name="initiate"/>
+   <type name="Int"/>
+   <type name="OAuthID"/>
+   <type name="Session"/>
+   <type name="session_X"/>
+   <type name="session_Y"/>
+   <type name="String"/>
+   <type name="Time"/>
+   <type name="Token"/>
+   <type name="token_Alice"/>
+   <type name="token_Eve"/>
+   <type name="univ"/>
+   <type name="UserCred"/>
+   <type name="seq/Int"/>
+   <type name="TO/Ord"/>
+   <set name="this/Alice" type="Process"/>
+   <set name="this/AuthServer" type="Process"/>
+   <set name="this/Client" type="Process"/>
+   <set name="this/Google" type="Process"/>
+   <set name="this/MyApp" type="Process"/>
+   <set name="this/UserAgent" type="Process"/>
+   <set name="$myApp_codes_e&apos;" type="Event"/>
+   <set name="$myApp_codes_l" type="forward"/>
+   <set name="$myApp_tokens_e&apos;" type="Event"/>
+   <set name="$myApp_tokens_l" type="getAccessToken"/>
+   <set name="$scenario1_e" type="Event"/>
+   <set name="$scenario1_id" type="Session"/>
+   <set name="First" type="TO/Ord"/>
+   <set name="Next" type="TO/Ord"/>
+</node>
+
+<node color="Red">
+   <set name="this/Eve" type="Process"/>
+</node>
+
+<node hideunconnected="yes">
+   <type name="Data"/>
+</node>
+
+<node showlabel="no">
+   <set name="$_relevant" type="Event"/>
+</node>
+
+<node visible="no" color="Gray">
+   <type name="Process"/>
+</node>
+
+<node visible="no" shape="Ellipse" color="Green">
+   <type name="Event"/>
+</node>
+
+<node visible="yes" showlabel="no">
+   <set name="$_relevant&apos;" type="Process"/>
+   <set name="at" type="Event"/>
+</node>
+
+<edge color="Black" style="Bold" weight="5">
+   <relation name="$TO"> <type name="Process"/> <type name="Process"/> </relation>
+</edge>
+
+<edge layout="yes" attribute="no">
+   <relation name="sender"> <type name="Event"/> <type name="Process"/> </relation>
+</edge>
+
+<edge visible="no">
+   <relation name="$knows"> <type name="Process"/> <type name="Data"/> <type name="Event"/> </relation>
+   <relation name="$procs"> <type name="Event"/> <type name="Process"/> </relation>
+   <relation name="args"> <type name="Event"/> <type name="Data"/> </relation>
+   <relation name="codes"> <type name="Process"/> <type name="UserCred"/> <type name="AuthCode"/> </relation>
+   <relation name="events"> <type name="Process"/> <type name="Event"/> </relation>
+   <relation name="rets"> <type name="Event"/> <type name="Data"/> </relation>
+</edge>
+
+<edge visible="no" attribute="no">
+   <relation name="creds"> <type name="Process"/> <type name="OAuthID"/> <type name="UserCred"/> </relation>
+   <relation name="tokens"> <type name="Process"/> <type name="AuthCode"/> <type name="AccessToken"/> </relation>
+</edge>
+
+<edge visible="no" attribute="yes">
+   <relation name="cred"> <type name="Process"/> <type name="UserCred"/> </relation>
+   <relation name="id"> <type name="Process"/> <type name="OAuthID"/> </relation>
+   <relation name="owns"> <type name="Process"/> <type name="Data"/> </relation>
+</edge>
+
+<edge visible="no" layout="yes">
+   <relation name="receiver"> <type name="Event"/> <type name="Process"/> </relation>
+</edge>
+
+</view>
+
+</alloy>
